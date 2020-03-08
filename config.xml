@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<widget xmlns   = "http://www.w3.org/ns/widgets"
+    xmlns:gap   = "http://phonegap.com/ns/1.0"
+    id          = "com.phonegap.example"
+    versionCode = "10"
+    version     = "1.0.0" >
+
+<!-- versionCode is optional and Android only -->
+
+  <name>using APIs in js frameworks </name>
+
+  <description>
+     an phone and weather serch app built with jQuery Mobile
+  </description>
+
+  <author href="yanzhang.nofnsports.com" email="lyanzha.g0429@gmail.com">
+     Yan Zhang
+  </author>
+
+</widget>
