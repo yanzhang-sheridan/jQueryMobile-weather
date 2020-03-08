@@ -3,22 +3,21 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>phoneLookup</title>
+    <title>Cloudy</title>
 
-    <link rel="apple-touch-icon" sizes="128x128" href="images/weathers.png">
-    <meta name="apple-mobile-web-app-capable" content="yes" />
+    <!-- <link rel="apple-touch-icon" sizes="128x128" href="images/weathers.png">
+    <meta name="apple-mobile-web-app-capable" content="yes" /> -->
 
     <script src="https://code.jquery.com/jquery-1.11.1.min.js"></script>
-
-    <script type="text/javascript">
-
+    
+    <script>
         $(document).on('mobileint',function(){
             $.mobile.defaultPageTransition='slide';
         });
     </script>
            
     <script src="https://code.jquery.com/mobile/1.4.5/jquery.mobile-1.4.5.min.js"></script>
-    <!-- <script src="js/searchWeather.js"></script> -->
+    <script src="js/searchWeather.js"></script> 
 
     <link rel="stylesheet" href="https://code.jquery.com/mobile/1.4.5/jquery.mobile-1.4.5.min.css" />
     <link rel="stylesheet" href="css/stylesheet.css" />
@@ -27,37 +26,6 @@
 
 </head>
 <body>
-    <div data-role="page" id="home">
-        <div data-role="header" date-position="fixed">
-            <h1>Phone Number Search</h1>
-        </div>
-        <div data-role="main" class="ui-content">
-           <div class='ui-field-contain'>
-               <label>Phone:</label>
-               <input type="text" name="" id="tel" placeholder="xxx-xxx-xxxx" />
-            </div>
-            <input type="button" value="search" id="search-submit"/>
-           
-            <!-- <button>se</button>
-            <a href="#" data-role="button"></a> -->
-            <ul data-role="listview" data-inset="true" id="list"></ul>
-              
-        </div>
-      
-            
-
-        <div data-role="footer" data-position="fixed" data-iconpos="top">
-            <div data-role="navbar">
-                <ul>
-                    <li> <a href="#home" data-icon="phone" class="ui-btn-active">Phone</a></li>
-                    <li> <a href="#weather" data-icon="cloud" >Weather</a></li> 
-                    <li> <a href="#other" data-icon="grid">Lonly Planet</a></li> 
-                </ul>
-            </div>
-         
-        </div>
-    </div>
-
 
     <div data-role="page" id="weather">
 
@@ -87,7 +55,7 @@
         </div><!-- /panel -->
     
         <div data-role="header" data-position="fixed" data-theme="c">
-            <h1>GOOD WEATHER</h1>
+            <h1>GOOD Weather</h1>
             <a href="#left-panel" data-role="button" data-icon="bars"  data-iconpos="notext" data-iconshadow="false">Menu</a>
     
             
@@ -105,182 +73,52 @@
         <div data-role="footer" data-position="fixed" data-iconpos="top">
             <div data-role="navbar">
                 <ul>
-                    <li> <a href="#home" data-icon="phone" class="ui-btn-active">Phone</a></li>
-                    <li> <a href="#weather" data-icon="cloud" >Weather</a></li> 
-                    <li> <a href="#other" data-icon="grid">other</a></li> 
+                    <li> <a href="#weather" data-icon="cloud" class="ui-btn-active" >Weather</a></li> 
+                    <li> <a href="#other" data-icon="grid">Other</a></li> 
                 </ul>
             </div>
          
-        </div> 
+        </div>
     </div> 
    
 
 
 
-   <div data-role="page" id="other">
-        <div>
-            <h1 data-role="header" date-position="fixed">header</h1>
-        </div>
-        <div data-role="main">
-            <h1>middle</h1>
-        </div>
-        <div data-role="footer" data-position="fixed" data-iconpos="top">
-            <div data-role="navbar">
-                <ul>
-                    <li> <a href="#home" data-icon="phone" class="ui-btn-active">Phone</a></li>
-                    <li> <a href="#weather" data-icon="cloud" >Weather</a></li> 
-                    <li> <a href="#other" data-icon="grid">other</a></li> 
-                </ul>
-            </div>
-         
-        </div> 
-    </div> 
+   <div data-role="page" id="other" data-theme="c">
 
+        <div role="main" class="ui-content">
 
-
-    <!-- <script src="http://code.jquery.com/jquery-1.11.1.min.js"></script>
-    <script src="http://code.jquery.com/mobile/1.4.5/jquery.mobile-1.4.5.min.js"></script> -->
-
-    <script>
-
-        ///--PHONE
-        var getTelInfo = function(){
-            alert("in");
-            // val url="http://cois.itxti.net/?http://ws.webxml.com.cn/WebServices/MbileCodeWS.asmx/getMobileInfo?userid="
-            var tel = $('#tel').val();
-            var list=$('#list');
-            if (tel){
-                var pattern=/^\(?([0-9]{3})\)?[-. ]?([0-9]{3})[-. ]?([0-9]{4})$/;
-                if (pattern.test(tel)){
-                    var searchBtn = $(this);
-                    searchBtn.button('disable');
-                    $.mobile.loading('show',{text:'searching...', textVisible:true});
-                    console.log(tel);
-                // $.get(url,{'mobileCode':tel},function(data){
-                //         console.log(data);
-                //list.html("<li><span style='color:red;'> "+$data.find('string').text()+"</span></li>");
-                //list.listView('refresh');
-                    $.mobile.loading('hide');
-                    searchBtn.button('enable');
-
-
-                //    }
-                }else{
-                    list.html("<span style='color:red;'> invalid phone number</span>");
-                }
-            }else{
-                    list.html("<span style='color:red;'> please enter a phone number</span>");
-            }    
-
-        };
-
-        var bindEvent = function(){
-            $('#search-submit').on('click', getTelInfo);
-        };
-
-        $(document).on('pagecreate','#index', function(){
-                        bindEvent();
-        });
-
-
-        //WEATHER
-        var icons = {
-            "clear-day":"B",
-            "clear-night":"C",
-            "rain":"R",
-            "snow":"G",
-            "sleet":"X",
-            "wind":"S",
-            "fog":"N",
-            "cloudy":"Y",
-            "partly-cloudy-day":"H",
-            "partly-cloudy-night":"I"
-
-        };
-
-        var cities = {
-            "oakville":{coords:{latitude:43.447436,longitude: -79.666672}},
-            "toronto":{coords:{latitude:43.653963,longitude:-79.387207}},
-            "vancouver" :{coords:{latitude:49.2608724,longitude: -123.1139529}},
-            "montreal":{coords:{latitude:45.4972159,longitude:-73.6103642}},
-            "ottawa" :{coords:{latitude:45.421106,longitude:-75.690308}},
-            "miami":{coords:{latitude:25.7742658,longitude:-80.1936589}},
-            "orlando" :{coords:{latitude:28.5421109,longitude:-81.3790304}},
-            "new york":{coords:{latitude:40.7127281,longitude:-74.0060152}},
-            "san francisco" :{coords:{latitude:37.8267,longitude:-122.4233}},
-            "london":{coords:{latitude:51.5073219,longitude: -0.1276474}},
-            "barcelona" :{coords:{latitude:47.2879608,longitude:28.5670941}},
-            "beijing" :{coords:{latitude:37.57224279278,longitude:-78.5287106987263}},
-            "current location" :""
-        };
-
-
-
-
-
-        function loadWeather(cityCoords){
-            var latlng = cityCoords.coords.latitude+","+cityCoords.coords.longitude;
-            console.log(latlng+"444");
-            var forcastURL="https://api.darksky.net/forecast/a39404a66e67fd7be1889227724585fe/"+latlng;
-            console.log(forcastURL+"888");
-            $.ajax({
-
-                url:forcastURL,
-                jsonpCallback:"jsonCallback",
-                contentType:"application/json",
-                dataType:'jsonp',
-                success:function(json){
-
-                    console.log(json);
-                    $("#current_temp").html(Math.round(json.currently.temperature)+"&#176;F");
-                    $("#current_summary").html(json.currently.summary);
-                    $("#current_temp").attr("data-icon",icons[json.currently.icon]);
-                    
-
-                },
-                error:function(e){
-                    console.log("please select a city");
-                }
-
-            });
-
-        }
-
-        function loadCity(city){
-            console.log(city);
-            $("#location").html(city);
-            if (city.toLowerCase=="current location") {
-                if (navigator.geolocation)
-                    navigator.geolocation.getCurrentPosition(loadWeather,loadDefaultCity);
-                else {
-                    loadDefaultCity();
-                }
-
-            }else{
-                loadWeather(cities[city.toLowerCase()]);
-            }
-
-        }   
-
-        function loadDefaultCity(){
-            loadCity("Oakville");
-        }
-    
-
-
-        $(document).ready(function(){
-            ///loadWeather("Oakville");
-            console.log("!---$$$"+$(this).html);
-            loadCity("Oakville");
-            $("a.city").bind("click",function(){
-                //console.log("!---"+$(this).html());
-                loadCity($(this).html()); 
+            <div id="branding">
             
-            });
-        });
+                <h1>Coming Soon</h1>
+            
+            </div>
+            
+            <div class="choice_list">
+            
+        
+                <ul data-role="listview" data-inset="true" >
+                    <li><a href="#" data-transition="slidedown"> <img src="images/translator.png"/> <h3> Online Translator</h3></a></li>
+                    <li><a href="#" data-transition="slidedown"> <img src="images/lonelyplanet.png"/> <h3>Lonly Planet </h3></a></li>
+                    <li><a href="choose_town.HTML" data-transition="slidedown"> <img src="images/happy.png"/> <h3>Fun Fairs</h3></a></li>
+            
+                </ul>
+            
+            </div>
 
+            <div data-role="footer" data-position="fixed" data-iconpos="top">
+                <div data-role="navbar">
+                    <ul>
+                        <li> <a href="#weather" data-icon="cloud" class="ui-btn-active" >Weather</a></li> 
+                        <li> <a href="#other" data-icon="grid">Other</a></li> 
+                    </ul>
+                </div>
+             
+            </div>
+            
+        </div>
+    </div>
 
-    </script>
 </body>
     
 </html>

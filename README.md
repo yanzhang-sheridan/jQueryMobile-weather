@@ -1,2 +1,2 @@
 # jQueryMobile-weather
-this is a weather/phone number mobile apps for using third party APIs
+this is a weather checking mobile apps for using third party APIs 

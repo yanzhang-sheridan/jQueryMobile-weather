@@ -7,7 +7,7 @@
 
     <name>Cloudy</name>
     <description>
-    	an phone and weather serch app built with jQuery Mobile
+    	an weather search app built with jQuery Mobile
      </description>
 
     <author href="yanzhang.nofnsports.com" email="lyanzha.g0429@gmail.com">
@@ -46,7 +46,7 @@
 	<!-- https://github.com/phonegap/phonegap/wiki/App-Icon-Sizes -->
 	<!-- http://docs.build.phonegap.com/en_US/configuring_icons_and_splash.md.html#Icons%20and%20Splash%20Screens -->
 
-	<icon src="www/images/weathers.png" />	
+	<icon src="www/images/cloudy.png" />	
 
 	<platform name="ios">
 
